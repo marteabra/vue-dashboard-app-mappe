@@ -11,7 +11,19 @@
     </div>
 
     <button class="list-item__remove" @click="emitRemove" aria-label="Remove">
-      X
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 39 39"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.8475 13.2966L13.2821 10.8619L19.6006 17.1804L25.9625 10.8185L28.4406 13.2966L22.0787 19.6585L28.3971 25.977L25.9625 28.4116L19.644 22.0931L13.2966 28.4406L10.8185 25.9625L17.1659 19.615L10.8475 13.2966Z"
+          fill="white"
+        />
+        <circle cx="19.5" cy="19.5" r="18.5" stroke="white" stroke-width="2" />
+      </svg>
     </button>
   </div>
 </template>
@@ -26,7 +38,7 @@ export default {
     doneButtonClass() {
       return this.task.done
         ? "list-item__done--green"
-        : "list-item__done--white";
+        : "list-item__done--transparent";
     },
   },
 
@@ -48,12 +60,11 @@ export default {
   overflow: scroll;
   width: 100%;
   justify-content: space-between;
-  background: rgb(189, 189, 189);
 }
 
 .list-item input {
   border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.6);
+  border: 1px solid transparent;
   width: 90%;
 }
 
@@ -65,20 +76,27 @@ export default {
 }
 
 .list-item__done--green {
-  background: rgba(82, 201, 82, 0.8);
+  background: rgb(120, 214, 120);
+  border: 2px solid rgb(120, 214, 120);
 }
 
-.list-item__done--white {
-  background: rgb(255, 255, 255);
+.list-item__done--transparent {
+  background: none;
+  border: 2px solid white;
+}
+
+.list-item__remove {
+  color: white;
 }
 
 .list-item button:nth-child(1) {
-  border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 50%;
+  border: 1px solid white(0, 0, 0, 0.5);
 }
 
 .list-item button:nth-child(3) {
   border: none;
+  background: none;
 }
 
 .list-item__task {

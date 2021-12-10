@@ -30,6 +30,15 @@
         />
       </div>
 
+      <div class="contact-form__subject">
+        <input
+          type="text"
+          name="subject"
+          placeholder="Subject"
+          v-model="form.subject"
+        />
+      </div>
+
       <div class="contact-form__message">
         <input
           type="text"
@@ -54,6 +63,7 @@ export default {
         firstname: null,
         lastname: null,
         email: null,
+        subject: null,
         message: null,
       },
     };
@@ -62,7 +72,7 @@ export default {
   methods: {
     submit_form() {
       alert(
-        `Thank you for your message, ${this.form.firstname}. We will get back to you as soon as possible!`
+        `Thank you for your message, ${this.form.firstname}. We will get back to you as soon as possible! We can see that your subject is " ${this.form.subject} ", you can read more about " ${this.form.subject} " on our website.`
       );
     },
   },
@@ -72,6 +82,7 @@ export default {
 <style>
 h3 {
   text-align: center;
+  color: white;
 }
 
 .contact-form {
@@ -81,7 +92,6 @@ h3 {
 .contact-form__form {
   display: grid;
   width: 28vw;
-  background: lightgrey;
 }
 
 .contact-form input {
@@ -102,11 +112,9 @@ h3 {
   height: 100px;
 }
 
-.contact-form__message input ::placeholder {
-  position: absolute;
-}
-
 .contact-form__message-submit {
   margin-top: 10px;
+  width: 20%;
+  height: 20px;
 }
 </style>

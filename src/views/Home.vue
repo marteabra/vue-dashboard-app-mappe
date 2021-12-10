@@ -70,9 +70,10 @@ export default {
 }
 
 .homepage__component {
-  border: 1px solid black;
   border-radius: 1em;
   width: 30vw;
+  box-shadow: rgba(0, 0, 0, 0.452) 10px 10px 10px;
+  background: rgb(37, 37, 37);
 }
 
 .homepage__infobox {
@@ -87,16 +88,11 @@ export default {
 .homepage__infobox--content {
   color: white;
   height: 50vh;
-  margin-top: 4em;
-  border-radius: 1em;
+  margin-top: 3em;
 }
 
 .content__paragraphs {
   text-align: center;
   padding: 1em;
-}
-
-.homepage__todo {
-  background: rgb(37, 37, 37);
 }
 </style>

@@ -2,14 +2,36 @@
   <div class="slideshow">
     <div class="slideshow__content">
       <div class="slideshow__buttons">
-        <button
-          @click="previousImage"
-          class="slideshow__button"
-          src="/assets/next.svg"
-        >
-          &lt;
+        <button @click="previousImage" class="slideshow__button">
+          <svg
+            width="37"
+            height="37"
+            viewBox="0 0 37 37"
+            fill="white"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M26.75 32.7894L2 18.5L26.75 4.21058L26.75 32.7894Z"
+              stroke="white"
+              stroke-width="2"
+            />
+          </svg>
         </button>
-        <button @click="nextImage" class="slideshow__button">&gt;</button>
+        <button @click="nextImage" class="slideshow__button">
+          <svg
+            width="37"
+            height="37"
+            viewBox="0 0 37 37"
+            fill="white"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10.25 4.21058L35 18.5L10.25 32.7894L10.25 4.21058Z"
+              stroke="white"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
       </div>
 
       <div class="slideshow__slides">
@@ -119,9 +141,8 @@ export default {
 
 .slideshow__buttons {
   position: absolute;
+  transform: translateY(100%);
   width: 100%;
-  height: 100%;
-  top: 0;
   bottom: 0;
   z-index: 10;
   display: flex;
@@ -133,8 +154,12 @@ export default {
   font-weight: 600;
   font-size: 1.5em;
   color: rgb(255, 255, 255);
-  background: black;
   border: none;
+  background: transparent;
+}
+
+.slideshow__button svg {
+  height: 25px;
 }
 
 .slideshow__dots {
@@ -149,13 +174,13 @@ export default {
 }
 
 .slideshow__dot {
+  display: block;
   min-width: 1em;
   min-height: 1em;
-  display: block;
+  font-size: 0.7em;
+  margin: 10px;
   border-radius: 100%;
-  margin-left: 10px;
-  border: 1px solid black;
-  background-color: black;
-  font-size: 0.5em;
+  border: 1px solid white;
+  background-color: white;
 }
 </style>

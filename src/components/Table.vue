@@ -2,7 +2,7 @@
   <div class="table-container">
     <div class="table">
       <button class="current-sort" @click="toggleSortOrder">
-        Sort: {{ sort.key }}
+        Sort: {{ sort.key }} ({{ sort.order.toUpperCase() }})
       </button>
       <table class="table__content">
         <thead>
@@ -68,7 +68,7 @@ export default {
       return this.content.sort((a, b) => compareFunction(a, b) * orderValue);
     },
 
-    naturalSort() {
+    /*naturalSort() {
       const key = this.sort.key;
       const orderValue = this.sort.order === "asc" ? 1 : -1;
 
@@ -80,7 +80,7 @@ export default {
       }
 
       return this.content.sort((a, b) => compareFunction(a, b) * orderValue);
-    },
+    },*/
   },
 
   methods: {
@@ -91,12 +91,12 @@ export default {
       });
     },
 
-    toggleSortOrder() {
+    /*toggleSortOrder() {
       this.sort.key = this.sort.order === "asc" ? "desc" : "asc";
       this.$router.push({
         query: { ...this.$route.query, order: this.sort.order },
       });
-    },
+    },*/
   },
 };
 </script>
@@ -108,51 +108,26 @@ export default {
   padding: 1em;
 }
 
-.current-sort {
-  margin: 10px 0 0 10px;
-  text-align: center;
-  width: 100%;
-  font-weight: bold;
-  font-size: 1em;
-}
-
 .table {
   position: relative;
-  background: white;
   border-collapse: collapse;
+  border-radius: 1em;
   height: 100%;
+  width: 100%;
+}
+.table thead {
+  font-weight: bold;
   width: 100%;
 }
 
 .table__content {
-  margin-top: 10px;
-  position: relative;
   display: flex;
+  position: relative;
   justify-content: space-evenly;
+  margin-top: 10px;
   width: 100%;
   text-align: center;
-}
-
-.table thead {
-  font-weight: bold;
-  background: grey;
-  width: 100%;
-}
-
-.table__buttons {
-  text-align: center;
-  border: none;
-  background: none;
-}
-
-.table button {
-  border: none;
-  background: none;
-  font-size: 0.8em;
-}
-
-.table tr {
-  border: 1px solid black;
+  color: white;
 }
 
 .table tbody {
@@ -162,5 +137,26 @@ export default {
 
 .table td {
   padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+.table__buttons {
+  text-align: center;
+  background: lightblue;
+}
+
+.table button {
+  border: none;
+  background: transparent;
+  font-size: 0.9em;
+}
+
+.current-sort {
+  margin: 10px 0 0 10px;
+  width: 100%;
+  font-weight: bold;
+  color: white;
+  font-size: 1em;
+  background: transparent;
 }
 </style>

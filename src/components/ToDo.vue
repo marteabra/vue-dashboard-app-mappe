@@ -1,6 +1,23 @@
 <template>
   <div class="todo-container">
     <div class="todo__title">{{ title }}</div>
+    <hr />
+    <button @click="addTask" class="todo__add-task">
+      <svg
+        width="10"
+        height="10"
+        viewBox="0 0 10 10"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.16992 9.68555V5.75977H0.273438V4.11914H4.16992V0.222656H5.83008V4.11914H9.72656V5.75977H5.83008V9.68555H4.16992Z"
+          fill="black"
+        />
+      </svg>
+
+      Add new task
+    </button>
     <div class="todo">
       <div class="todo__content">
         <div class="todo__items">
@@ -12,7 +29,6 @@
           />
         </div>
       </div>
-      <button @click="addTask" class="todo__add-task">+ Add new task</button>
     </div>
   </div>
 </template>
@@ -65,26 +81,32 @@ export default {
 </script>
 
 <style>
+hr {
+  width: 100%;
+  border: 1px solid white;
+}
+
 .todo-container {
   position: relative;
   width: 30vw;
   height: 60vh;
-  padding: 1em;
+  padding-top: 1em;
 }
 
 .todo-content {
-  height: 300px;
+  position: initial;
+  max-height: 10vh;
 }
 
 .todo {
   position: absolute;
-  height: 50vh;
-  width: 90%;
+  height: 300px;
+  width: 100%;
   overflow-y: scroll;
 }
 
 .todo__title {
-  position: ;
+  color: white;
   margin-top: 0;
   margin-bottom: 10;
   width: 100%;
@@ -93,9 +115,10 @@ export default {
 }
 
 .todo__add-task {
-  position: absolute;
+  background: white;
+  box-shadow: black 0 10px 10px 0;
+  position: initial;
   width: 100%;
-  margin-top: 20px;
   padding: 0.5em;
   font-size: 1em;
   border: 0;
