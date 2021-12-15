@@ -57,13 +57,7 @@
 </template>
 
 <script>
-import TodoItem from "../components/TodoItem.vue";
-
 export default {
-  components: {
-    TodoItem,
-  },
-
   data() {
     return {
       index: 0,
